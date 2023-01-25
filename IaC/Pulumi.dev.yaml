@@ -4,6 +4,7 @@ config:
   MyPortfolio:machineType: e2-small
   MyPortfolio:osImage: debian-11
   MyPortfolio:servicePort: "80"
+  MyPortfolio:network: "default"
   MyPortfolio:subnet: "subnet-707477e"
   gcp:project: myportifolio-375718
   gcp:region: northamerica-northeast1
