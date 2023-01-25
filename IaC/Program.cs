@@ -109,7 +109,7 @@ return await Deployment.RunAsync(() =>
     // Export the instance's name, public IP address, and HTTP URL.
     return new Dictionary<string, object?>
     {
-        ["name"] = instance.Name,
+        ["name"] = instance.instanceName,
         ["ip"] = instanceIP,
         ["url"] = Output.Format($"http://{instanceIP}:{servicePort}"),
     };
