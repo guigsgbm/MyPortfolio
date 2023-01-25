@@ -1,5 +1,5 @@
 config:
-  MyPortfolio:instanceName: vm-MyPortfolio
+  MyPortfolio:instanceName: vm-myportfolio
   MyPortfolio:instanceTag: webserver
   MyPortfolio:machineType: e2-small
   MyPortfolio:osImage: debian-11

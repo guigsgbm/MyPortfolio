@@ -6,7 +6,7 @@ return await Deployment.RunAsync(() =>
 {
     // Import the program's configuration settings.
     var config = new Pulumi.Config();
-    var instanceName = config.Get("instanceName") ?? "vm-MyPortfolio";
+    var instanceName = config.Get("instanceName") ?? "vm-myportfolio";
     var machineType = config.Get("machineType") ?? "e2-small";
     var osImage = config.Get("osImage") ?? "debian-11";
     var instanceTag = config.Get("instanceTag") ?? "webserver";
