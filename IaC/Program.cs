@@ -28,7 +28,7 @@ return await Deployment.RunAsync(() =>
     });*/
 
     // Create a firewall allowing inbound access over ports 80 (for HTTP) and 22 (for SSH).
-    var firewall = new Gcp.Compute.Firewall("firewall", new()
+    /*var firewall = new Gcp.Compute.Firewall("firewall", new()
     {
         Network = network,
         Allows = new[]
@@ -50,14 +50,13 @@ return await Deployment.RunAsync(() =>
         {
             instanceTag,
         },
-    });
+    });*/
 
     // Define a script to be run when the VM starts up.
     var metadataStartupScript = $@"#!/bin/bash
-        echo 'Instalando Git'
-        sudo yum install git-all
-        echo 'Instalando Kubectl'
-        curl -LO 'https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl'
+        apt-get install -y git-all
+
+        curl -LO 'https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl/bin/linux/amd64/kubectl'
         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
         ";
 
