@@ -99,7 +99,7 @@ return await Deployment.RunAsync(() =>
         {
             instanceTag,
         },
-    }, /*new() { DependsOn = firewall }*/);
+    }/*, new() { DependsOn = firewall })*/;
 
     var instanceIP = instance.NetworkInterfaces.Apply(interfaces => {
         return interfaces[0].AccessConfigs[0].NatIp;
