@@ -11,6 +11,7 @@ return await Deployment.RunAsync(() =>
     var osImage = config.Get("osImage") ?? "debian-11";
     var instanceTag = config.Get("instanceTag") ?? "webserver";
     var servicePort = config.Get("servicePort") ?? "80";
+    var network = config.Get("network") ?? "default";
     var subnet = config.Get("subnet") ?? "subnet-707477e";
 
     // Create a new network for the virtual machine.
@@ -29,7 +30,7 @@ return await Deployment.RunAsync(() =>
     // Create a firewall allowing inbound access over ports 80 (for HTTP) and 22 (for SSH).
     var firewall = new Gcp.Compute.Firewall("firewall", new()
     {
-        Network = network.SelfLink,
+        Network = network,
         Allows = new[]
         {
             new Gcp.Compute.Inputs.FirewallAllowArgs {
